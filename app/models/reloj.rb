@@ -1,2 +1,0 @@
-class Reloj < ApplicationRecord
-end
