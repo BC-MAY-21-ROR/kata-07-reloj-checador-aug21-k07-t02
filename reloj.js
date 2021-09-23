@@ -1,27 +1,6 @@
-
-<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-
-<style>
-body {
-    background: black;
-}
-
-.clock {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    color: #17D4FE;
-    font-size: 60px;
-    font-family: Orbitron;
-    letter-spacing: 7px;
-
-}
-</style>
-
-<script>
 function showTime(){
 
+    alert("Hola1");
     var date = new Date();
     var h = date.getHours(); // 0 - 23
     var m = date.getMinutes(); // 0 - 59
@@ -50,6 +29,3 @@ function showTime(){
 }
 
 showTime();
-</script>
-
-
