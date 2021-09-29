@@ -17,6 +17,8 @@ group :development, :test do
   gem 'rspec'
 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'fuubar'
+  gem 'rspec'
 end
 
 group :development do
