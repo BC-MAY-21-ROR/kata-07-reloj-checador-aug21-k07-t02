@@ -1,0 +1,49 @@
+require: rubocop-rails
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  TargetRubyVersion: 3.0.2
+  Exclude:
+    - lib/email_validator.rb
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
+    - 'config.ru'
+    - 'Rakefile'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'vendor/bundle/**/*'
+    - 'node_modules/**/*'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'app/channels/application_cable/channel.rb'
+    - 'app/channels/application_cable/connection.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 180
+
+Metrics/MethodLength:
+  Max: 30
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+  # rubocop:disable Style/NumericPredicate
