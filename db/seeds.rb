@@ -13,7 +13,7 @@ store = Store.create(
 Employee.create(
   [
     { email: 'test@test.com', name: 'test', position: 'manager', private_number: '123456', active: true, admin_id: 1, store_id: 1 },
-    { email: 'test1@test.com', name: 'test1', position: 'sales', private_number: '1234567', active: true, admin_id: 2, store_id: 2 },
-    { email: 'test2@test.com', name: 'test2', position: 'bartender', private_number: '1234568', active: true, admin_id: 3, store_id: 3 }
+    { email: 'test1@test.com', name: 'test1', position: 'sales', private_number: '1234567', active: true, admin_id: 1, store_id: 2 },
+    { email: 'test2@test.com', name: 'test2', position: 'bartender', private_number: '1234568', active: true, admin_id: 1, store_id: 3 }
   ]
 )
