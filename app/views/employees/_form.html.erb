@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :store %>
+    <%= form.select :store_id, stores_for_select %>
+  </div>
+  
+  <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
   </div>
@@ -35,6 +40,7 @@
     <%= form.label :active %>
     <%= form.check_box :active %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
