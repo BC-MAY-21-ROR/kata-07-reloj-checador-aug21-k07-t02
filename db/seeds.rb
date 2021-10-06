@@ -2,7 +2,7 @@ Admin.delete_all
 Store.delete_all
 Employee.delete_all
 
-admin = Admin.create(name: 'Edson', email: 'test@test.com', user: 'admin', password_digest: 'admin')
+admin = Admin.create(name: 'Edson', email: 'test@test.com', user: 'admin', password_digest: '123456')
 store = Store.create(
   [
     { name: 'Juan store', address: '330 exito' },
