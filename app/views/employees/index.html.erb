@@ -26,9 +26,9 @@
         <td><%= employee.private_number %></td>
         <td><%= employee.active %></td>
         <td><%= employee.store.name %></td>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_employee_url(Admin.current_admin, employee) %></td>
+        <td><%= link_to 'Edit', edit_admin_employee_path(Admin.current_admin, employee) %></td>
+        <td><%#= link_to 'Destroy', employee_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Employee', new_employee_path %>
+<%#= link_to 'New Employee', new_employee_path %>

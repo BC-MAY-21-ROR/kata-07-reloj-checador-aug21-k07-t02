@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :stores
-  resources :employees
-  resources :admin
   root 'welcome#index'
+  
+  resources :admin do
+    resources :stores
+    resources :employees
+  end
 end
