@@ -1,4 +1,3 @@
-//document.addEventListener("turbolinks:load", function() { 
 function showTime(){
    
     let date = new Date();
@@ -28,4 +27,3 @@ function showTime(){
   
 }
 showTime();
-//});
