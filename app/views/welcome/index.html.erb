@@ -1,2 +1,13 @@
-<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-<%= javascript_pack_tag 'index', 'data-turbolinks-track': 'reload' %>
+
+<div class="container text-center pading-top-15">
+    <div id="MyClockDisplay" class="clock" onload="showTime()"> </div>
+    <%= javascript_pack_tag 'index', 'data-turbolinks-track': 'reload' %>
+
+    <input >
+    <div class="container d-flex justify-content-center " style="padding:2%;"> 
+    <%= button_to "check in", employees_path, class: "btn btn-success"  %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= button_to "check out", employees_path, class: "btn btn-danger"  %>
+    </div>
+
+</div>

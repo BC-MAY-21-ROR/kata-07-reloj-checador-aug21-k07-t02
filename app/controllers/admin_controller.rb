@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_action :set_admin, only: %i[show edit update destroy]
 
   def new; end
-
+  
   def create
     @admin = Admin.find_by(email: params[:email])
     if @admin.password_digest == params[:password]

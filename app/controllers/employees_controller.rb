@@ -3,6 +3,9 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+    p "XXXX"*60
+    p current_admin
+    p "XXXX"*60
   end
 
   def show; end
