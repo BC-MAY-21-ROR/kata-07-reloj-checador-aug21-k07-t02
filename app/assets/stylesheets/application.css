@@ -13,21 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
-.clock {
-    color: #17D4FE;
-    font-size: 500%;
-    font-family: Orbitron;
-    letter-spacing: 7px;
-}
-.centers {
-    margin: auto;
-    width: 50%;
-
-    border: 3px solid green;
-    padding: 10px;
-  }
-
-.pading-top-15{
-    padding-top: 15%;
+html, body {
+    margin: 0;
+    height: 100%;
 }
