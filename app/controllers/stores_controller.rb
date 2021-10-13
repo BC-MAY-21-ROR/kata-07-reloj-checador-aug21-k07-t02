@@ -26,10 +26,6 @@ class StoresController < ApplicationController
     redirect_to @store, notice: 'Store was successfully updated.'
   end
 
-  def destroy
-    @store.destroy
-    redirect_to stores_url, notice: 'Store was successfully destroyed.'
-  end
 
   private
 

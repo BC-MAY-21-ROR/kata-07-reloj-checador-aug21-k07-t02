@@ -29,10 +29,6 @@ class AttendancesController < ApplicationController
     redirect_to @attendance, notice: 'Attendance was successfully updated.'
   end
 
-  def destroy
-    @attendance.destroy
-    redirect_to attendances_url, notice: 'Attendance was successfully destroyed.'
-  end
 
   private
 

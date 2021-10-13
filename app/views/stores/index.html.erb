@@ -19,7 +19,6 @@
           <td><%= store.address %></td>
           <td><%= link_to image_tag("find.png", size: "40x40"), store %></td>
           <td><%= link_to image_tag("edit.png", size: "40x40"), edit_store_path(store) %></td>
-          <td><%= link_to image_tag("x.png", size: "40x40"), store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
