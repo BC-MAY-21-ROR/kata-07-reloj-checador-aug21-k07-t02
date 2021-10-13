@@ -29,7 +29,6 @@ class AttendancesController < ApplicationController
     redirect_to @attendance, notice: 'Attendance was successfully updated.'
   end
 
-
   private
 
   def set_attendance
