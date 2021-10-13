@@ -8,7 +8,7 @@ class AdminController < ApplicationController
     @admin = Admin.find_by(email: params[:email])
     if @admin.password_digest == params[:password]
       session[:admin_id] = @admin.id
-      redirect_to '/', notice: 'You have successfully signed in'
+      redirect_to root_path, notice: 'You have successfully signed in'
     else 
       flash[:alert] = 'There was a problem with your username or password' 
       render :new
@@ -17,7 +17,7 @@ class AdminController < ApplicationController
 
   def destroy
     session[:admin_id] = nil 
-    redirect_to '/admin/new', notice: 'You have successfully logged out'
+    redirect_to new_admin_path, notice: 'You have successfully logged out'
   end
 
   private

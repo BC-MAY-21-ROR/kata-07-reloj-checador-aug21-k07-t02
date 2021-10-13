@@ -26,8 +26,8 @@
           <td><%= employee.private_number %></td>
           <td><%= employee.active %></td>
           <td><%= employee.store.name %></td>
-          <td><%= link_to image_tag("find.png", :size => "40x40"), employee %></td>
-          <td><%= link_to image_tag("edit.png", :size => "40x40"), edit_employee_path(employee) %></td>
+          <td><%= link_to image_tag("find.png", size: "40x40"), employee %></td>
+          <td><%= link_to image_tag("edit.png", size: "40x40"), edit_employee_path(employee) %></td>
         
         </tr>
       <% end %>
