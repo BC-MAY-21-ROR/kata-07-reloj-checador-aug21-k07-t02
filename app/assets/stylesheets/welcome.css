@@ -1,30 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,300&display=swap');
 
 .checkin-background {
-    height: 100%;
-    width: 100%;
+    align-items: center;
     background-color: #a3eeff;
     display: flex;
-    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .checkin-form {
-    display: flex;
-    flex-direction: column;
     align-items: space-around;
-    justify-content: center;
-    gap: 18px;
-    height: 45%;
-    width: 50%;
     background-color: white;
     border-radius: 5%;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-}
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 45%;
+    justify-content: center;
+    width: 50%;
+    }
 
 .checkin-buttons-container {
     display: flex;
-    justify-content: center;
     gap: 24px;
+    justify-content: center;
     padding: 2%;
 }
 
@@ -36,28 +36,27 @@
     text-shadow:rgba(0, 0, 0, 0.2)
 }
 .private-number-input {
-    text-align: center;
-    font-size: 32px;
-    font-family: Roboto Mono;
-    width: 300px;
-    padding: 4px 20px; 
-    margin-left: auto;
-    margin-right: auto;
     box-sizing: border-box;
     border-radius: 10px;
-}
+    font-size: 32px;
+    font-family: Roboto Mono;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px 20px; 
+    width: 300px;
+   }
 .check-button {
     font-size: 28px;
-    width: 180px;
     height: 50px;
+    width: 180px;
 }
 
 .centers {
-    margin: auto;
-    width: 50%;
-
     border: 3px solid green;
+    margin: auto;
     padding: 10px;
+    width: 50%;
   }
 
 .pading-top-15{
