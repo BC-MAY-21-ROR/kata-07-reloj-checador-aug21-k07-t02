@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container table-container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Stores</h1>
+  <h1>Stores</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stores.each do |store| %>
+  <table class="table table-hover table-striped">
+    <thead class="thead-dark">
       <tr>
-        <td><%= store.name %></td>
-        <td><%= store.address %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Address</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.address %></td>
+          <td><%= link_to image_tag("find.png", size: "40x40"), store %></td>
+          <td><%= link_to image_tag("edit.png", size: "40x40"), edit_store_path(store) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Store', new_store_path %>
+  <br>
+
+  <%= link_to 'New Store', new_store_path, class: "btn btn-success " %>
+</div>

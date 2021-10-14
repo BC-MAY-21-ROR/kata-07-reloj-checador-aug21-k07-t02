@@ -26,10 +26,6 @@ class EmployeesController < ApplicationController
     redirect_to employee_path, notice: 'Employee was successfully updated.'
   end
 
-  def destroy
-    @employee.destroy
-    redirect_to employees_url, notice: 'Employee was successfully destroyed.'
-  end
 
   private
 

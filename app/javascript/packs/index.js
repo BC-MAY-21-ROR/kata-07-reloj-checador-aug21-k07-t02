@@ -1,4 +1,4 @@
-const my_clock_display = document.getElementById('MyClockDisplay')
+const my_clock_display = document.getElementById("MyClockDisplay")
 
 function showTime() {
   let date    = new Date()
