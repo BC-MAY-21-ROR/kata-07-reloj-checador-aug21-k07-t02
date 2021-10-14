@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :admin
   resources :stores
   resources :employees
+  resources :attendances
 end
