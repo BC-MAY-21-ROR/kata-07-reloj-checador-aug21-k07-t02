@@ -1,6 +1,5 @@
 require 'awesome_print'
 class AttendancesController < ApplicationController
-  before_action :set_attendance, only: %i[show edit update destroy]
 
   def index
     @attendances = Attendance.all
@@ -12,30 +11,53 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new
   end
 
-  def edit; end
+  def edit
+    employee = Employee.find_by(private_number: attendance_params[:private_number].to_i)
+    if employee.nil?
+      @attendance = Attendance.find(params[:id])
+    else
+      attendance = employee.attendances.last
+      @attendance = Attendance.find(attendance.id)
+    end
+  end 
 
   def create
     employee = Employee.find_by(private_number: attendance_params[:private_number].to_i)
-    @attendance = Attendance.new(attendance_params)
-    @attendance.employee_id = employee.id
-    return render :new, status: :unprocessable_entity unless @attendance.save
 
-    redirect_to @attendance, notice: 'Attendance was successfully created.'
+    if !employee.nil?
+      ap '*' * 125
+      @attendance = Attendance.new
+      @attendance.employee_id = employee.id
+      @attendance.check_in = Time.now
+      @attendance.save
+      redirect_to root_path, notice: 'Attendance was successfully created.'   
+    elsif employee.nil?
+      Attendance.new(attendance_params).save
+      ap '!' * 125
+      redirect_to root_path, notice: 'Attendance was successfully created.'   
+    else
+      ap '@' * 125
+      redirect_to root_path, status: :unprocessable_entity
+    end
   end
 
   def update
-    return render :edit, status: :unprocessable_entity unless @attendance.update(attendance_params)
+    ap '=======================> update @' * 125
+    employee = Employee.find_by(private_number: attendance_params[:private_number].to_i)
+    if employee.nil?
+      attendance = Attendance.find(params[:id])
+    else
+      attendance = employee.attendances.last
+    end
 
-    redirect_to @attendance, notice: 'Attendance was successfully updated.'
+    return render :root_path, status: :unprocessable_entity unless attendance.update(check_out: Time.now)
+
+    redirect_to root_path, notice: 'Attendance was successfully updated.'
   end
 
   private
 
-  def set_attendance
-    @attendance = Attendance.find(params[:id])
-  end
-
   def attendance_params
-    params.require(:attendance).permit(:check_in, :check_out, :private_number)
+    params.permit(:check_in, :check_out, :private_number, :button, :authenticity_token, :commit)
   end
 end

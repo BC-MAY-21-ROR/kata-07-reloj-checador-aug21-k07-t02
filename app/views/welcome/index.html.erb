@@ -1,13 +1,47 @@
 <div class="checkin-background">
   <div class="container text-center checkin-form">
     <div id="MyClockDisplay" class="clock" onload="showTime()"> </div>
-      <%= javascript_pack_tag 'index', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'index', 'data-turbolinks-track': 'reload' %>
 
-    <input class="container private-number-input">
-      <div class="container checkin-buttons-container">
-        <%= button_to "Check-in", employees_path, class: "btn btn-success check-button"  %>
-        <%= button_to "Check-out", employees_path, class: "btn btn-danger check-button"  %>
+    <%= form_tag 'attendances', id: 'change_path' do%>
+    <%= text_field_tag :private_number %>
+    <%= submit_tag "Check in", id: 'check_in' %>
+    <%= submit_tag "Check out", formmethod: "patch", id: 'check_out' %>
+    <% end %>
+
+
+
+
+
+
+    <%= form_with(model: Attendance.first, id: 'change_path') do |form| %>
+    <div class="container checkin-buttons-container">
+      <div class="field">
+        <%= form.label :private_number %><br>
+        <%= form.text_field :private_number, class: "container private-number-input" %><br>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'check_in', id: 'check_ins', class: "btn btn-success check-button" %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'check_out', id: 'check_outs', class: "btn btn-danger check-button" %>
       </div>
     </div>
+    <% end %>
+  </div>
 </div>
 
+<script>
+  const change_path = document.getElementById('change_path')
+  const check_in = document.getElementById('check_out')
+
+  check_out.addEventListener("click", employee_check_out)
+  console.log(change_path.action)
+
+  function employee_check_out() {
+    change_path.action = 'PATCH patch'
+    change_path.action = '/attendances/'
+  }
+</script>
