@@ -7,6 +7,5 @@ class Employee < ApplicationRecord
              :name,
              :position,
              :store_id,
-             :active,
              presence: true
 end
