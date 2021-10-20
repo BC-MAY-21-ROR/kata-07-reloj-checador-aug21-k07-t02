@@ -26,7 +26,6 @@ class StoresController < ApplicationController
     redirect_to @store, notice: 'Store was successfully updated.'
   end
 
-
   private
 
   def set_store

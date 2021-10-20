@@ -24,9 +24,7 @@ class EmployeesController < ApplicationController
     return render :edit, status: :unprocessable_entity unless @employee.update(employee_params)
 
     redirect_to employees_path, notice: 'Employee was successfully updated.'
-    
   end
-
 
   private
 
@@ -35,6 +33,6 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.require(:employee).permit(:email, :name, :position, :private_number,:active, :admin_id, :store_id)
+    params.require(:employee).permit(:email, :name, :position, :private_number, :active, :admin_id, :store_id)
   end
 end
