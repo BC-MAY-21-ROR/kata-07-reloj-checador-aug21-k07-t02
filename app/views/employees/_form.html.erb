@@ -1,4 +1,4 @@
-<%= form_with(model: employee) do |form| %>
+<%= form_with(model: employee, class: "form-group") do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -9,37 +9,40 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :store %>
-    <%= form.select :store_id, stores_for_select %>
+    <%= form.select :store_id, stores_for_select, {}, class: "form-select" %>
   </div>
   
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :position %>
-    <%= form.text_field :position %>
+    <%= form.text_field :position, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :private_number %>
-    <%= form.text_field :private_number %>
+    <%= form.text_field :private_number, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+  <div class="form-group">
+    <div class="form-check">
+      <%= form.check_box :active, class: "form-check-input" %>
+      <%= form.label :active %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class: "btn btn-primary" %>
+    
   </div>
 <% end %>

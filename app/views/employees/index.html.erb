@@ -10,8 +10,8 @@
         <th scope="col">Name</th>
         <th scope="col">Position</th>
         <th scope="col">Private number</th>
-        <th scope="col">Active</th>
         <th scope="col">Store</th>
+        <th scope="col">Active</th>
         <th scope="col" colspan="3"></th>
       </tr>
     </thead>
@@ -24,14 +24,110 @@
           <td><%= employee.name %></td>
           <td><%= employee.position %></td>
           <td><%= employee.private_number %></td>
-          <td><%= employee.active %></td>
           <td><%= employee.store.name %></td>
-          <td><%= link_to image_tag("find.png", size: "40x40"), employee %></td>
-          <td><%= link_to image_tag("edit.png", size: "40x40"), edit_employee_path(employee) %></td>     
+          <td><%= (employee.active)? "Active": "Inactive" %></td>
+          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal<%= employee.id %>">
+            Edit
+          </button></td>
+          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showModal<%= employee.id %>">
+            show
+          </button></td>
         </tr>
+        <div class="modal fade" id="editModal<%= employee.id %>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              <p id="notice"><%= notice %></p>
+
+                <%= render 'form', employee: employee %>
+              </div>
+              <div class= "modal-footer">
+                <%= link_to 'Show', employee, class: "btn btn-secondary" %>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="showModal<%= employee.id %>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Employee <%= employee.name %></h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                 <p id="notice"><%= notice %></p>
+
+                    <p>
+                      <strong>Email:</strong>
+                      <%= employee.email %>
+                    </p>
+
+                    <p>
+                      <strong>Name:</strong>
+                      <%= employee.name %>
+                    </p>
+
+                    <p>
+                      <strong>Position:</strong>
+                      <%= employee.position %>
+                    </p>
+
+                    <p>
+                      <strong>Private number:</strong>
+                      <%= employee.private_number %>
+                    </p>
+
+                    <p>
+                      <strong>Active:</strong>
+                      <%= employee.active %>
+                    </p>
+
+                    <p>
+                      <strong>Id:</strong>
+                      <%= employee.id %>
+                    </p>
+              </div>
+              <div class= "modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </tbody>
   </table>
 <br>
-<%= link_to 'New Employee', new_employee_path, class: "btn btn-success " %>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal">
+  New Employee
+</button>
+<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Employee</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p id="notice"><%= notice %></p>
+
+        <%= render 'form', employee: Employee.new%>
+      </div>
+      <div class= "modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

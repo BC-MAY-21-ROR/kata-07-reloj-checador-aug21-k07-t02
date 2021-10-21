@@ -17,15 +17,14 @@ class EmployeesController < ApplicationController
     @employee = Admin.first.employees.new(employee_params)
     return render :new, status: :unprocessable_entity unless @employee.save
 
-    redirect_to @employee, notice: 'Employee was successfully created.'
+    redirect_to employees_path, notice: 'Employee was successfully created.'
   end
 
   def update
     return render :edit, status: :unprocessable_entity unless @employee.update(employee_params)
 
-    redirect_to employee_path, notice: 'Employee was successfully updated.'
+    redirect_to employees_path, notice: 'Employee was successfully updated.'
   end
-
 
   private
 

@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    unless current_admin
-      redirect_to "/admin/new", alert: "Please Log in to view admin page"
-    end
+    redirect_to '/admin/new', alert: 'Please Log in to view admin page' unless current_admin
   end
 end
